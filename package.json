@@ -13,8 +13,14 @@
   },
   "main": "./index.js",
   "bin": "./cli.js",
+  "scripts": {
+    "test": "mocha"
+  },
   "dependencies": {},
-  "devDependencies": {},
+  "devDependencies": {
+    "mocha": "2.1.0",
+    "should": "4.6.3"
+  },
   "engines": {
     "node": ">= 0.10.0"
   },

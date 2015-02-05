@@ -6,7 +6,7 @@ module.exports.ordered = function(data) {
   }
 
   if (data.length <= 0) {
-    throw new Error("Data set is empty.");
+    throw new Error("Data set is an empty array.");
   }
 
   if (data.length == 1) {
@@ -32,7 +32,7 @@ module.exports.unordered = function(data) {
   }
 
   if (data.length <= 0) {
-    throw new Error("Data set is empty.");
+    throw new Error("Data set is an empty array.");
   }
 
   if (data.length == 1) {
