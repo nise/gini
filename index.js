@@ -16,13 +16,12 @@ module.exports.ordered = function(data) {
   var sum1 = 0;
   var sum2 = 0;
 
-  data.forEach(function(value, i) {
-    // Ensure data set contains only numbers.
-    value = Number(value);
+  for (var i = 0; i < data.length; i++) {
+    var value = Number(data[i]); // Ensure data set contains only numbers.
 
     sum1 += ((2 * (i + 1)) - data.length - 1) * value;
     sum2 += value;
-  });
+  }
 
   return sum1 / (Math.pow(data.length, 2) * (sum2 / data.length));
 };
@@ -43,18 +42,17 @@ module.exports.unordered = function(data) {
   var sum1 = 0;
   var sum2 = 0;
 
-  // Ensure data set contains only numbers.
-  data = data.map(function(value) { return Number(value); });
+  data = data.map(function(value) { return Number(value); });  // Ensure data set contains only numbers.
 
-  data.forEach(function(value1, i) {
-    data.forEach(function(value2, j) {
+  for (var i = 0; i < data.length; i++) {
+    for (var j = 0; j < data.length; j++) {
       if (i != j) {
-        sum1 += Math.abs(value1 - value2);
+        sum1 += Math.abs(data[i] - data[j]);
       }
-    });
+    }
 
-    sum2 += value1;
-  });
+    sum2 += data[i];
+  }
 
   return sum1 / (2 * Math.pow(data.length, 2) * (sum2 / data.length));
 };
