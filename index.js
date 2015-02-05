@@ -17,7 +17,8 @@ module.exports.ordered = function(data) {
   var sum2 = 0;
 
   data.forEach(function(value, i) {
-    value = Number(value); // Cast.
+    // Ensure data set contains only numbers.
+    value = Number(value);
 
     sum1 += ((2 * (i + 1)) - data.length - 1) * value;
     sum2 += value;
@@ -42,13 +43,12 @@ module.exports.unordered = function(data) {
   var sum1 = 0;
   var sum2 = 0;
 
-  data.forEach(function(value1, i) {
-    value1 = Number(value1); // Cast.
+  // Ensure data set contains only numbers.
+  data = data.map(function(value) { return Number(value); });
 
+  data.forEach(function(value1, i) {
     data.forEach(function(value2, j) {
       if (i != j) {
-        value2 = Number(value2); // Cast.
-
         sum1 += Math.abs(value1 - value2);
       }
     });
