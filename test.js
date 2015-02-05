@@ -18,7 +18,7 @@ it("should return zero for data sets with only one item", function() {
   gini.unordered([9.2]).should.be.a.Number.and.exactly(0);
 });
 
-it("should correctly calculate gini for data sets with multiple items", function() {
+it("should return correct gini for data sets with multiple items", function() {
   gini.unordered([2.7, 3]).should.be.a.Number.and.approximately(0.026, 0.001);
   gini.unordered([0, 1, 2]).should.be.a.Number.and.approximately(0.444, 0.001);
   gini.unordered([501, 4, 89]).should.be.a.Number.and.approximately(0.558, 0.001);
