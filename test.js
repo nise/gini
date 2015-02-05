@@ -11,6 +11,12 @@ it("should throw an error for empty array data sets", function() {
   (function() { gini.unordered([]) }).should.throw("Data set is an empty array.");
 });
 
+it("should throw an error for data sets containing non-numbers", function() {
+  (function() { gini.unordered([1, 2, 3]) }).should.not.throw("Data set contains non-numbers.");
+  (function() { gini.unordered([1, 2, "3"]) }).should.not.throw("Data set contains non-numbers.");
+  (function() { gini.unordered([1, 2, "a"]) }).should.throw("Data set contains non-numbers.");
+});
+
 it("should return zero for data sets with only one item", function() {
   gini.unordered([0]).should.be.a.Number.and.exactly(0);
   gini.unordered([1]).should.be.a.Number.and.exactly(0);

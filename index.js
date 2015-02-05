@@ -17,7 +17,10 @@ module.exports.ordered = function(data) {
   var sum2 = 0;
 
   for (var i = 0; i < data.length; i++) {
-    var value = Number(data[i]); // Ensure data set contains only numbers.
+    var value = Number(data[i]);
+    if (isNaN(value)) {
+      throw new Error("Data set contains non-numbers.");
+    }
 
     sum1 += ((2 * (i + 1)) - data.length - 1) * value;
     sum2 += value;
@@ -39,10 +42,15 @@ module.exports.unordered = function(data) {
     return 0; // Don't even bother calculating. Complete equality.
   }
 
+  data = data.map(function(value) {
+    if (isNaN(value = Number(value))) {
+      throw new Error("Data set contains non-numbers.");
+    }
+    return value;
+  });
+
   var sum1 = 0;
   var sum2 = 0;
-
-  data = data.map(function(value) { return Number(value); });  // Ensure data set contains only numbers.
 
   for (var i = 0; i < data.length; i++) {
     for (var j = 0; j < data.length; j++) {
