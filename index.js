@@ -9,6 +9,10 @@ module.exports.ordered = function(data) {
     throw new Error("Data set is empty.");
   }
 
+  if (data.length == 1) {
+    return 0; // Don't even bother calculating. Complete equality.
+  }
+
   var sum1 = 0;
   var sum2 = 0;
 
@@ -29,6 +33,10 @@ module.exports.unordered = function(data) {
 
   if (data.length <= 0) {
     throw new Error("Data set is empty.");
+  }
+
+  if (data.length == 1) {
+    return 0; // Don't even bother calculating. Complete equality.
   }
 
   var sum1 = 0;
