@@ -5,6 +5,10 @@ module.exports.ordered = function(data) {
     throw new Error("Data set is not an array.");
   }
 
+  if (data.length <= 0) {
+    throw new Error("Data set is empty.");
+  }
+
   var sum1 = 0;
   var sum2 = 0;
 
@@ -21,6 +25,10 @@ module.exports.ordered = function(data) {
 module.exports.unordered = function(data) {
   if (!Array.isArray(data)) {
     throw new Error("Data set is not an array.");
+  }
+
+  if (data.length <= 0) {
+    throw new Error("Data set is empty.");
   }
 
   var sum1 = 0;
