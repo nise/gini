@@ -16,7 +16,7 @@
   "scripts": {
     "precommit": "npm test",
     "prepush": "npm test",
-    "test": "mocha"
+    "test": "mocha --require should"
   },
   "dependencies": {},
   "devDependencies": {
@@ -30,10 +30,10 @@
   "keywords": [
     "gini",
     "coefficient",
+    "index",
+    "ratio",
     "equality",
     "inequality",
-    "difference",
-    "sum",
     "math",
     "statistic",
     "lorenz"

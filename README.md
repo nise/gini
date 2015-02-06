@@ -14,7 +14,7 @@ The `-g` flag is recommended for easy CLI usage, but completely optional.
 
 ## API
 
-For data sets that are already ordered ascendingly, use the `ordered` function:
+For data sets that are already ordered ascendingly, use the faster `ordered` function:
 
 ```javascript
 var gini = require("gini");
@@ -23,7 +23,7 @@ var result = gini.ordered(data);
 console.log(result); // = 0.5415730337078651
 ```
 
-For data sets in any other order, use the `unordered` function:
+For data sets that are *not* already ordered ascendingly, use the slower `unordered` function:
 
 ```javascript
 var gini = require("gini");
