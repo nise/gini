@@ -17,6 +17,14 @@ describe("ordered()", function() {
     (function() { gini.ordered([1, 2, "a"]) }).should.throw("Data set contains non-numbers.");
   });
 
+  it("should throw an error for data sets containing negative numbers", function() {
+    (function() { gini.ordered([0, 0, 0]) }).should.not.throw("Data set contains negative numbers.");
+    (function() { gini.ordered([0, 1, 2]) }).should.not.throw("Data set contains negative numbers.");
+    (function() { gini.ordered([1, 2, 3]) }).should.not.throw("Data set contains negative numbers.");
+    (function() { gini.ordered([-1, 0, 1]) }).should.throw("Data set contains negative numbers.");
+    (function() { gini.ordered([-2, -1, 0]) }).should.throw("Data set contains negative numbers.");
+  });
+
   it("should throw an error for data sets not ordered ascendingly", function() {
     (function() { gini.ordered([123]) }).should.not.throw("Data set is not ordered ascendingly.");
     (function() { gini.ordered([1, 2, 3]) }).should.not.throw("Data set is not ordered ascendingly.");
@@ -53,6 +61,14 @@ describe("unordered()", function() {
     (function() { gini.unordered([1, 3, 2]) }).should.not.throw("Data set contains non-numbers.");
     (function() { gini.unordered([1, "3", 2]) }).should.not.throw("Data set contains non-numbers.");
     (function() { gini.unordered([1, "a", 2]) }).should.throw("Data set contains non-numbers.");
+  });
+
+  it("should throw an error for data sets containing negative numbers", function() {
+    (function() { gini.unordered([0, 0, 0]) }).should.not.throw("Data set contains negative numbers.");
+    (function() { gini.unordered([2, 1, 0]) }).should.not.throw("Data set contains negative numbers.");
+    (function() { gini.unordered([3, 1, 2]) }).should.not.throw("Data set contains negative numbers.");
+    (function() { gini.unordered([1, 0, -1]) }).should.throw("Data set contains negative numbers.");
+    (function() { gini.unordered([0, -1, -2]) }).should.throw("Data set contains negative numbers.");
   });
 
   it("should correctly calculate gini coefficient of data sets", function() {

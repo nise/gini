@@ -20,6 +20,10 @@ module.exports.ordered = function(data) {
       throw new Error("Data set contains non-numbers.");
     }
 
+    if (value < 0) {
+      throw new Error("Data set contains negative numbers.");
+    }
+
     if (i > 0 && value < previousValue) {
       throw new Error("Data set is not ordered ascendingly.");
     }
@@ -42,8 +46,14 @@ module.exports.unordered = function(data) {
   }
 
   data = data.map(function(value) {
-    if (isNaN(value = Number(value))) {
+    value = Number(value);
+
+    if (isNaN(value)) {
       throw new Error("Data set contains non-numbers.");
+    }
+
+    if (value < 0) {
+      throw new Error("Data set contains negative numbers.");
     }
 
     return value;
