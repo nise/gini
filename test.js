@@ -34,9 +34,14 @@ describe("ordered()", function() {
   });
 
   it("should correctly calculate gini coefficient of data sets", function() {
+    gini.ordered([0]).should.be.a.Number.and.exactly(0);
+    gini.ordered([0, 0, 0]).should.be.a.Number.and.exactly(0);
     gini.ordered([1]).should.be.a.Number.and.exactly(0);
+    gini.ordered([1, 1, 1]).should.be.a.Number.and.exactly(0);
     gini.ordered([7]).should.be.a.Number.and.exactly(0);
+    gini.ordered([7, 7, 7]).should.be.a.Number.and.exactly(0);
     gini.ordered([9.2]).should.be.a.Number.and.exactly(0);
+    gini.ordered([9.2, 9.2, 9.2]).should.be.a.Number.and.exactly(0);
     gini.ordered([2.7, 3]).should.be.a.Number.and.approximately(0.026, 0.001);
     gini.ordered([0, 1, 2]).should.be.a.Number.and.approximately(0.444, 0.001);
     gini.ordered([4, 89, 501]).should.be.a.Number.and.approximately(0.558, 0.001);
@@ -72,9 +77,14 @@ describe("unordered()", function() {
   });
 
   it("should correctly calculate gini coefficient of data sets", function() {
+    gini.unordered([0]).should.be.a.Number.and.exactly(0);
+    gini.unordered([0, 0, 0]).should.be.a.Number.and.exactly(0);
     gini.unordered([1]).should.be.a.Number.and.exactly(0);
+    gini.unordered([1, 1, 1]).should.be.a.Number.and.exactly(0);
     gini.unordered([7]).should.be.a.Number.and.exactly(0);
+    gini.unordered([7, 7, 7]).should.be.a.Number.and.exactly(0);
     gini.unordered([9.2]).should.be.a.Number.and.exactly(0);
+    gini.unordered([9.2, 9.2, 9.2]).should.be.a.Number.and.exactly(0);
     gini.unordered([3, 2.7]).should.be.a.Number.and.approximately(0.026, 0.001);
     gini.unordered([0, 2, 1]).should.be.a.Number.and.approximately(0.444, 0.001);
     gini.unordered([501, 4, 89]).should.be.a.Number.and.approximately(0.558, 0.001);

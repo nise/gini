@@ -33,6 +33,10 @@ module.exports.ordered = function(data) {
     previousValue = value;
   }
 
+  if (sum2 == 0) {
+    return 0; // If data set contains only zeroes, the equation further below won't work.
+  }
+
   return sum1 / (Math.pow(data.length, 2) * (sum2 / data.length));
 };
 
@@ -70,6 +74,10 @@ module.exports.unordered = function(data) {
     }
 
     sum2 += data[i];
+  }
+
+  if (sum2 == 0) {
+    return 0; // If data set contains only zeroes, the equation further below won't work.
   }
 
   return sum1 / (2 * Math.pow(data.length, 2) * (sum2 / data.length));
