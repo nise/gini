@@ -6,7 +6,7 @@ var gini = require("./");
 var pkg = require("./package.json");
 var args = process.argv.slice(2);
 
-if (args.indexOf("--help") !== -1 || args.length <= 0) {
+if (args.length <= 0 || args.indexOf("--help") >= 0 || args.indexOf("-h") >= 0) {
   console.log([
     "",
     pkg.name + " - " + pkg.description,
@@ -18,7 +18,7 @@ if (args.indexOf("--help") !== -1 || args.length <= 0) {
   return;
 }
 
-if (args.indexOf("--version") !== -1) {
+if (args.indexOf("--version") >= 0 || args.indexOf("-v") >= 0) {
   console.log(pkg.version);
   return;
 }
