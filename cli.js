@@ -15,12 +15,12 @@ if (args.length <= 0 || args.indexOf("--help") >= 0 || args.indexOf("-h") >= 0) 
     "",
     "  " + pkg.name + " <1> <2> <3> ... <N>"
   ].join("\n"));
-  return;
+  process.exit();
 }
 
 if (args.indexOf("--version") >= 0 || args.indexOf("-v") >= 0) {
   console.log(pkg.version);
-  return;
+  process.exit();
 }
 
 console.log(gini.unordered(args));
