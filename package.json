@@ -1,6 +1,6 @@
 {
   "name": "gini",
-  "version": "1.1.6",
+  "version": "1.1.7",
   "description": "Calculate the Gini coefficient of a data set.",
   "author": "DSTIL",
   "license": "MIT",
