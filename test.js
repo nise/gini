@@ -1,5 +1,6 @@
 "use strict";
 
+var should = require("should");
 var gini = require("./");
 
 describe("ordered()", function() {
