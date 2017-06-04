@@ -28,7 +28,7 @@ module.exports.ordered = function(data) {
       throw new Error("Data set is not ordered ascendingly.");
     }
 
-    sum1 += ((2 * (i + 1)) - data.length - 1) * value;
+    sum1 += (2 * i - data.length - 1) * value;
     sum2 += value;
     previousValue = value;
   }
